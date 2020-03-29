@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 
 
 import Calendar from './index'
-// import Calendar from '../dist/bundle';
+// import Calendar from '../dist/calendar';
 
 ReactDom.render(
   <div>
