@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cc-ch/react-frame.git"
+    "url": "git+https://github.com/cc-ch/rc-calendars.git"
   },
   "keywords": [
     "react",
@@ -24,9 +24,9 @@
   "author": "chencc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cc-ch/react-frame/issues"
+    "url": "https://github.com/cc-ch/rc-calendars/issues"
   },
-  "homepage": "https://github.com/cc-ch/react-frame#readme",
+  "homepage": "https://github.com/cc-ch/rc-calendars#readme",
   "browserslist": [
     "defaults",
     "not ie < 11",
