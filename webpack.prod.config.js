@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   entry: './src',
   output: {
-    filename: 'calendar.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, './dist'),
     library: {
       root: "calendar",

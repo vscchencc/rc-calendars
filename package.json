@@ -1,10 +1,12 @@
 {
   "name": "rc-calendars",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "This a simple react calendar component",
   "main": "index.js",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "index.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
