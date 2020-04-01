@@ -38,4 +38,4 @@ ReactDOM.render(<Calendar />, container);
 ```
 
 # License
-## rc-calendar is released under the MIT license
+### rc-calendar is released under the MIT license

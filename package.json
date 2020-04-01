@@ -1,6 +1,6 @@
 {
   "name": "rc-calendars",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "This a simple react calendar component",
   "main": "index.js",
   "files": [
@@ -20,7 +20,11 @@
   "keywords": [
     "react",
     "react-components",
+    "react-calendar",
     "Calendar",
+    "ui component",
+    "ui",
+    "component",
     "custom"
   ],
   "author": "chencc",
