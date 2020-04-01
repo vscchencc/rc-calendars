@@ -1,5 +1,5 @@
 import React from 'react';
-import { groupArray } from './utils'
+import { groupArray } from '../utils'
 
 function DatePanel(props) {
   const data = props.data.dateTable ? groupArray(props.data.dateTable.table, 7) : [];
@@ -28,8 +28,8 @@ function DatePanel(props) {
                   {
                     item.map((val, i) => {
                       const classNameActive = parseInt(current[0]) === val.year && parseInt(current[1]) === val.month && parseInt(current[2]) === val.date ? 'active ' : ' '
-                      const classNameCurrent = val.status !== 'current' ? 'prevandnext' : ''
-                      const classNameDisable = val.disabled ? '' : 'disable'
+                      const classNameCurrent = val.status !== ' current ' ? ' prevandnext ' : ''
+                      const classNameDisable = val.disabled ? '' : ' disable'
                       return (
                         <td key={i}>
                           <button className={classNameActive + classNameCurrent + classNameDisable} 

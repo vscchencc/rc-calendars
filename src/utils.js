@@ -1,3 +1,7 @@
+/**
+ * Author chencc
+ * Date 2020/03/29
+ */
 // 分割数组
 export function groupArray (arr, subGroupLength) {
   let index = 0
