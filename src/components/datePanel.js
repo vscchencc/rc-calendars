@@ -28,7 +28,7 @@ function DatePanel(props) {
                   {
                     item.map((val, i) => {
                       const classNameActive = parseInt(current[0]) === val.year && parseInt(current[1]) === val.month && parseInt(current[2]) === val.date ? 'active ' : ' '
-                      const classNameCurrent = val.status !== ' current ' ? ' prevandnext ' : ''
+                      const classNameCurrent = val.status !== 'current' ? ' prevandnext ' : ''
                       const classNameDisable = val.disabled ? '' : ' disable'
                       return (
                         <td key={i}>
