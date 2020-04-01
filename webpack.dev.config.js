@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   /*入口 */
   entry: [
-    path.join(__dirname, 'src/app.js'),
+    path.join(__dirname, 'examples/app.js'),
   ],
   devtool: 'inline-source-map',
   devServer: {
@@ -98,7 +98,8 @@ module.exports = {
       },
       {
         test: /\.m?js$/,
-        include: path.resolve(__dirname, 'src'), // 只解析src下面的文件,不推荐用exclude
+        // include: path.resolve(__dirname, 'src'), // 只解析src下面的文件,不推荐用exclude
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         }
