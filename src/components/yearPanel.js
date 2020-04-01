@@ -1,5 +1,5 @@
 import React from 'react';
-import { groupArray } from './utils'
+import { groupArray } from '../utils'
 
 function YearPanel (props) {
   const data = props.data.yearTable ? groupArray(props.data.yearTable, 3) : []

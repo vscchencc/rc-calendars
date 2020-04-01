@@ -1,11 +1,16 @@
+/**
+ * Author chencc
+ * Date 2020/03/29
+ */
 import React, {Component} from 'react';
-import './style.scss'
 import CalendarCore from "./core";
-import DateHeader from './dateHeader'
-import YearPanel from './yearPanel'
-import DatePanel from './datePanel.js'
-import MonthPanel from './monthPanel'
+import DateHeader from 'components/dateHeader'
+import YearPanel from 'components/yearPanel'
+import DatePanel from 'components/datePanel.js'
+import MonthPanel from 'components/monthPanel'
 import moment from 'moment'
+
+import './scss/style.scss'
 
 const calendar = new CalendarCore()
 
