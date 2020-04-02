@@ -142,7 +142,6 @@ class CalendarCore {
         disabled: this.compareDate(year + ' ' + this.monthArr[i], 'month')
       })
     }
-
     return monthTable
   }
 

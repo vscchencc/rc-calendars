@@ -14,11 +14,11 @@ function Tutorial () {
         <p>Basic Usage</p>
         <div className="wrapper-content clearfix">
           <div className="wrapper-left">
-            <Calendar type = "year"/>
-            <Calendar type = "date"/>
+            <Calendar type = "year" changeValue={(info) => {console.log(info)}} />
+            <Calendar type = "date" changeValue={(info) => {console.log(info)}} />
           </div>
           <div className="wrapper-right">
-            <Calendar type = "month"/>
+            {/* <Calendar type = "month" changeValue={(info) => {console.log(info)}} /> */}
           </div>
         </div>
 

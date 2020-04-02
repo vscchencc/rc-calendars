@@ -12,8 +12,6 @@ import moment from 'moment'
 
 import './scss/style.scss'
 
-const calendar = new CalendarCore()
-
 class Calendar extends Component {
   constructor (props) {
     super(props)
@@ -36,6 +34,8 @@ class Calendar extends Component {
     this.nextMonth = this.nextMonth.bind(this)
 
     this.changeValue = this.changeValue.bind(this)
+
+    this.calendar = new CalendarCore()
   }
   componentDidMount () {
     this.init()
@@ -78,7 +78,7 @@ class Calendar extends Component {
     let yearTable = [],
         monthTable = [],
         dateTable = []
-    calendar.init({
+    this.calendar.init({
       value: this.props.value,
       min: this.state.min,
       max:  this.state.max
@@ -91,15 +91,15 @@ class Calendar extends Component {
     })
 
     this.setState({
-      headerValue: calendar.data.year + '/' + calendar.data.month,              // calendar title
+      headerValue: this.calendar.data.year + '/' + this.calendar.data.month,              // calendar title
       yearTable: yearTable,                                                         // calendar year table
       monthTable: monthTable,                                                       // calendar month table
       dateTable: dateTable,                                                         // calendar date table
-      weeks_list: calendar.lang[calendar.data.lang].weeks,                      // calendar language week
-      year: calendar.data.year,                
-      month: calendar.data.year + '/' + calendar.data.month,                    
-      date: calendar.data.year + '/' + calendar.data.month + '/' + calendar.data.date,
-      datetime: calendar.data.year + '' + calendar.data.month + '' + calendar.data.date
+      weeks_list: this.calendar.lang[this.calendar.data.lang].weeks,                      // calendar language week
+      year: this.calendar.data.year,                
+      month: this.calendar.data.year + '/' + this.calendar.data.month,                    
+      date: this.calendar.data.year + '/' + this.calendar.data.month + '/' + this.calendar.data.date,
+      datetime: this.calendar.data.year + '' + this.calendar.data.month + '' + this.calendar.data.date
     })
   }
   // title select year 标题上选择年份
@@ -126,7 +126,7 @@ class Calendar extends Component {
       })
     } else {
       // 选择年份后更新月份table
-      const monthTable = calendar.updateMonth(val.year)
+      const monthTable = this.calendar.updateMonth(val.year)
       this.setState({
         year: val,
         monthTable: monthTable,
@@ -146,7 +146,7 @@ class Calendar extends Component {
       this.changeValue(val)
     } else {
       // 选择月份后更新日期table
-      const dateTable = calendar.updateMonthDate(val)
+      const dateTable = this.calendar.updateMonthDate(val)
       this.setState({
         month: val.year + '/' + val.month,
         headerValue: val.year + '/' + val.month,
@@ -160,7 +160,7 @@ class Calendar extends Component {
   selectDate (val) {
     if (val.status !== 'current') {
       // 选择月份后更新日期table
-      const dateTable = calendar.updateMonthDate(val)
+      const dateTable = this.calendar.updateMonthDate(val)
       this.setState({
         month: val.year + '/' + val.month,
         headerValue: val.year + '/' + val.month,
@@ -178,14 +178,14 @@ class Calendar extends Component {
   // prev-double
   prevYear () {
     if (this.state.currentPanel === 'year') {
-      const yearTable = calendar.updatePrevDouYear(this.state.yearTable)
+      const yearTable = this.calendar.updatePrevDouYear(this.state.yearTable)
       this.setState({
         yearTable: yearTable
       })
     } else {
-      const yearTable = calendar.updatePreYear(this.state.yearTable)
-      const monthTable = calendar.updateMonth(yearTable[0].year)
-      const dateTable = calendar.updateMonthDate({
+      const yearTable = this.calendar.updatePreYear(this.state.yearTable)
+      const monthTable = this.calendar.updateMonth(yearTable[0].year)
+      const dateTable = this.calendar.updateMonthDate({
         year: yearTable[0].year,
         month: this.state.month.split('/')[1]
       })
@@ -201,14 +201,14 @@ class Calendar extends Component {
   // next-double
   nextYear () {
     if (this.state.currentPanel === 'year') {
-      const yearTable = calendar.updateNextDouYear(this.state.yearTable)
+      const yearTable = this.calendar.updateNextDouYear(this.state.yearTable)
       this.setState({
         yearTable: yearTable
       })
     } else {
-      const yearTable = calendar.updateNextYear(this.state.yearTable)
-      const monthTable = calendar.updateMonth(yearTable[0].year)
-      const dateTable = calendar.updateMonthDate({
+      const yearTable = this.calendar.updateNextYear(this.state.yearTable)
+      const monthTable = this.calendar.updateMonth(yearTable[0].year)
+      const dateTable = this.calendar.updateMonthDate({
         year: yearTable[0].year,
         month: this.state.month.split('/')[1]
       })
@@ -226,7 +226,7 @@ class Calendar extends Component {
     const year = parseInt(this.state.headerValue.split('/')[0])
     const month = parseInt(this.state.headerValue.split('/')[1])
     if ((month - 1) <= 0) {
-      const dateTable = calendar.updateMonthDate({
+      const dateTable = this.calendar.updateMonthDate({
         year: year - 1,
         month: 12
       })
@@ -235,7 +235,7 @@ class Calendar extends Component {
         headerValue: year - 1 + '/' + 12
       })
     } else {
-      const dateTable = calendar.updateMonthDate({
+      const dateTable = this.calendar.updateMonthDate({
         year: year,
         month: month - 1
       })
@@ -251,7 +251,7 @@ class Calendar extends Component {
     let year = parseInt(this.state.headerValue.split('/')[0])
     let month = parseInt(this.state.headerValue.split('/')[1])
     if ((month + 1) > 12) {
-      const dateTable = calendar.updateMonthDate({
+      const dateTable = this.calendar.updateMonthDate({
         year: year + 1,
         month: 1
       })
@@ -260,7 +260,7 @@ class Calendar extends Component {
         headerValue: year + 1 + '/' + 1
       })
     } else {
-      const dateTable = calendar.updateMonthDate({
+      const dateTable = this.calendar.updateMonthDate({
         year: year,
         month: month + 1
       })
@@ -277,15 +277,17 @@ class Calendar extends Component {
     let formatDefault = ''
     if (this.state.type === 'date') {
       formatDefault = this.props.format || 'YYYYMMDD'
-      value = String(val.year) + ' ' + String(calendar.digit(val.month)) + ' ' + String(calendar.digit(val.date))
+      value = String(val.year) + ' ' + String(this.calendar.digit(val.month)) + ' ' + String(this.calendar.digit(val.date))
     } else if (this.state.type === 'month') {
       formatDefault = this.props.format || 'YYYYMM'
-      value = String(val.year) + ' ' + String(calendar.digit(val.month))
+      value = String(val.year) + ' ' + String(this.calendar.digit(val.month))
     } else if (this.state.type === 'year') {
       formatDefault = this.props.format || 'YYYY'
       value = String(val.year)
     }
-    this.props.changeValue(moment(value).format(formatDefault))
+    if (this.props.changeValue) {
+      this.props.changeValue(moment(value).format(formatDefault))
+    }
   }
 }
 

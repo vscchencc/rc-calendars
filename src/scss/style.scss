@@ -47,9 +47,9 @@
             .date-picker-prev-btn-arrow-double {
                 &::before {
                   position: absolute;
-                  width: 15px;
-                  height: 12px;
-                  top: 8px;
+                  width: 10px;
+                  height: 10px;
+                  top: 10px;
                   left: 0;
                   content: "";
                   background: url('../images/double-arrow.png') no-repeat;
@@ -65,9 +65,9 @@
             .date-picker-prev-btn-arrow {
               &::before {
                 position: absolute;
-                width: 12px;
-                height: 9px;
-                top: 9px;
+                width: 10px;
+                height: 7px;
+                top:11px;
                 left: 2px;
                 content: "";
                 background: url('../images/arrow.png') no-repeat;
@@ -83,9 +83,9 @@
             .date-picker-prev-btn-forward {
               &::before {
                 position: absolute;
-                width: 12px;
-                height: 9px;
-                top: 9px;
+                width: 10px;
+                height: 7px;
+                top: 11px;
                 right: 2px;
                 content: "";
                 background: url('../images/arrow.png') no-repeat;
@@ -103,9 +103,9 @@
             .date-picker-prev-btn-forward-double {
               &::before {
                 position: absolute;
-                width: 15px;
-                height: 12px;
-                top: 8px;
+                width: 10px;
+                height: 10px;
+                top: 10px;
                 right: 0;
                 content: "";
                 background: url('../images/double-arrow.png') no-repeat;
