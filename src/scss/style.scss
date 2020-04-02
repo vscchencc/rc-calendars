@@ -54,11 +54,13 @@
                   content: "";
                   background: url('../images/double-arrow.png') no-repeat;
                   background-size: 100% 100%;
+                  transform: rotate(180deg);
                 }
                 &:hover {
                   &::before {
                     background: url('../images/double-arrow-active.png') no-repeat;
                     background-size: 100% 100%;
+                    transform: rotate(0deg);
                   }
                 }
             }
@@ -66,17 +68,19 @@
               &::before {
                 position: absolute;
                 width: 10px;
-                height: 7px;
-                top:11px;
+                height: 10px;
+                top: 10px;
                 left: 2px;
                 content: "";
                 background: url('../images/arrow.png') no-repeat;
                 background-size: 100% 100%;
+                transform: rotate(180deg);
               }
               &:hover {
                 &::before {
                   background: url('../images/arrow-active.png') no-repeat;
                   background-size: 100% 100%;
+                  transform: rotate(0deg);
                 }
               }
             }
@@ -84,13 +88,12 @@
               &::before {
                 position: absolute;
                 width: 10px;
-                height: 7px;
-                top: 11px;
+                height: 10px;
+                top: 10px;
                 right: 2px;
                 content: "";
                 background: url('../images/arrow.png') no-repeat;
                 background-size: 100% 100%;
-                transform: rotate(180deg);
               }
               &:hover {
                 &::before {
@@ -110,7 +113,6 @@
                 content: "";
                 background: url('../images/double-arrow.png') no-repeat;
                 background-size: 100% 100%;
-                transform: rotate(180deg);
               }
               &:hover {
                 &::before {

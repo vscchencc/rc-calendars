@@ -42,7 +42,8 @@ class Calendar extends Component {
   }
   render () {
     const { currentPanel } = this.state
-    return (
+    const status = (this.state.type === 'year' || this.state.type === 'month' || this.state.type === 'date')
+    return ( status && 
       <div className="calendar-wrapper">
         <div className="calendar-header">
           <DateHeader 
@@ -53,23 +54,23 @@ class Calendar extends Component {
             nextYear={this.nextYear}
             prevMonth={this.prevMonth}
             nextMonth={this.nextMonth} />
-        </div>
-        <div className="calendar-body">
-          {
-            currentPanel && currentPanel === 'year' &&
-              <YearPanel 
-                data={this.state} 
-                selectYear={this.selectYear}/> ||
-            currentPanel === 'month' &&
-              <MonthPanel 
-                selectMonth={this.selectMonth}
-                data={this.state} /> || 
-            currentPanel === 'date' &&
-              <DatePanel
-                selectDate = {this.selectDate}
-                data={this.state} />
-          }
-        </div>
+          </div>
+          <div className="calendar-body">
+            {
+              currentPanel && currentPanel === 'year' &&
+                <YearPanel 
+                  data={this.state} 
+                  selectYear={this.selectYear}/> ||
+              currentPanel === 'month' &&
+                <MonthPanel 
+                  selectMonth={this.selectMonth}
+                  data={this.state} /> || 
+              currentPanel === 'date' &&
+                <DatePanel
+                  selectDate = {this.selectDate}
+                  data={this.state} />
+            }
+          </div>
       </div>
     )
   }
